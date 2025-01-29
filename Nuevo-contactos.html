@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .left, .right {
+            width: 48%;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        .recaptcha-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .g-recaptcha {
+            transform: scale(1.05);
+            transform-origin: left;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 40%;
+        }
+
+        .button-container button {
+            background-color: black;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .button-container button:hover {
+            background-color: #333;
+        }
+    </style>
+
+<link rel="icon" type="image/jpg" href="images/logo.jpg" />
+</head>
+<body>
+    <div class="container">
+        <h1>CONTACTO</h1>
+        <p>Ponte en contacto con nosotros, será un placer atenderte.</p>
+        <form id="contactForm">
+            <div class="left">
+                <label for="nombre">Nombre Completo *</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correo">Correo Electrónico *</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="telefono">Teléfono *</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="empresa">Empresa *</label>
+                <input type="text" id="empresa" name="empresa" required>
+
+                <label for="estado">Estado *</label>
+                <select id="estado" name="estado" required>
+                    <option value="">Selecciona un estado</option>
+                    <option value="CDMX">Ciudad de México</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Nuevo León">Nuevo León</option>
+                </select>
+            </div>
+
+            <div class="right">
+                <label for="comentarios">Comentarios</label>
+                <textarea id="comentarios" name="comentarios"></textarea>
+            </div>
+
+            <div class="recaptcha-container">
+                <div class="g-recaptcha" data-sitekey="TU_CLAVE_DEL_SITE_KEY"></div>
+                <div class="button-container">
+                    <button type="submit">ENVIAR</button>
+                    <button type="button" onclick="window.location.href='index.html';">REGRESAR</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario
+
+            let nombre = document.getElementById('nombre').value.trim();
+            let correo = document.getElementById('correo').value.trim();
+            let telefono = document.getElementById('telefono').value.trim();
+            let empresa = document.getElementById('empresa').value.trim();
+            let estado = document.getElementById('estado').value;
+            let recaptcha = grecaptcha.getResponse();
+
+            if (!nombre || !correo || !telefono || !empresa || !estado) {
+                alert('Por favor, llena todos los campos obligatorios.');
+                return;
+            }
+
+            if (!recaptcha) {
+                alert('Por favor, verifica el reCAPTCHA.');
+                return;
+            }
+
+            alert('Formulario enviado correctamente.');
+            this.reset(); // Limpia el formulario
+        });
+    </script>
+</body>
+</html>
