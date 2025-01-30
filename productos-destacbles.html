@@ -33,27 +33,45 @@
 
 <style>
   /* Brands Section Custom Styles */
-.brands_section {
-  position: relative;
-  width: 100%;
-}
+  .brands_section {
+    width: 100%;
+  }
 
-.title-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #0991ee;
-  font-size: 2rem;
-}
+  .container-fluid {
+    padding: 0;
+  }
 
-.title-overlay h2 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
+  /* Title styling with border */
+  .title-overlay {
+    background-color: #fff;
+    border: 3px solid #0991ee; /* Frame around the title */
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px; /* Space between title and image */
+  }
 
+  .title-overlay h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #0991ee;
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 0;
+  }
+
+  /* Image container styles */
+  .image-container {
+    position: relative;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 </style>
+
+
 
 <body>
   <div class="hero_area sub_pages">
@@ -101,13 +119,20 @@
 
   <section class="brands_section">
     <div class="container-fluid p-0">
-      <!-- Full-width responsive image -->
-      <img src="marcas.jpg" alt="Marcas que se manejan" class="img-fluid w-100">
+      <!-- Title with border -->
       <div class="title-overlay">
-        <h2 class="text-center">Marcas que se manejan</h2>
+        <h2>Las Mejores marcas las tenemos aqui.</h2>
+      </div>
+      
+      <!-- Image Section -->
+      <div class="image-container">
+        <img src="Marcas.jpeg" alt="Marcas que se manejan" class="img-fluid w-100">
       </div>
     </div>
   </section>
+  
+  
+  
 
 
   <!-- fruits section -->
@@ -134,17 +159,16 @@
         </div>
         <div class="col-md-3">
           <h5>
-            Informacion General
+            Información general
           </h5>
           <ul>
             <li>
-Contactanos atraves de.
+              Contáctanos a través de:
 
-WhatsApp: +52 899 468 8280 
-
-Email: ventas.surtitech@hotmail.com 
-o
-ricardo.surtitech@hotmail.com
+              WhatsApp: +52 899 468 8280
+              Email: ventas.surtitech@hotmail.com
+              o
+              ricardo.surtitech@hotmail.com
 
             </li>
             
@@ -159,6 +183,7 @@ ricardo.surtitech@hotmail.com
             <div class="social-box">
               <a href="https://www.facebook.com/share/1Dc7HRNTqZ/?mibextid=wwXIfr">
                 <img src="images/fb.png" alt="">
+                <img src="images/linkedin.png" alt="">
               </a>
 
              
@@ -170,12 +195,12 @@ ricardo.surtitech@hotmail.com
 
         <div class="col-md-3">
           <h5>
-            Derechos de propiedad
+            Derechos de autor
 
           </h5>
           <ul>
             <li>
-              Copyright &copy; 2025 All Rights Reserved By SURTITECH
+              Derechos de autor © 2025. Todos los derechos reservados por SURTITECH.
               <a href="https://html.design/">Free Html Templates</a>
             </li>
            
